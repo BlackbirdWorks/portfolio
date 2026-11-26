@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      const s = localStorage.getItem("color-scheme");
+      if (s === "light" || s === "dark") {
+        document.querySelector('meta[name="color-scheme"]').content = s;
+      }
+    } catch {}
+  </script>
+  <title>BlackbirdWorks — Open-Source Go Infrastructure &amp; Developer Tools</title>
+  <meta name="description" content="Portfolio of open-source repositories by BlackbirdWorks: single-binary AWS emulation, OpenFeature flag relay, Huma middleware, Powerwall proxy, Loki log pruning, and Cast audio tooling.">
+  <meta property="og:title" content="BlackbirdWorks — Open-Source Go Infrastructure &amp; Developer Tools">
+  <meta property="og:description" content="Explore 8 open-source repositories from BlackbirdWorks, from Gopherstack and Semaphore to Huma middleware and Loki-prune.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blackbirdworks.dev/">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">
+        <svg class="brand-mark" role="img" viewBox="0 0 32 32" width="32" height="32">
+          <title>BlackbirdWorks</title>
+          <defs>
+            <linearGradient id="brand-grad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#4f46e5"/>
+              <stop offset="100%" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+          <rect width="32" height="32" rx="8" fill="#0f172a"/>
+          <path d="M16 5 L27 23 L19.5 21 L16 27 L12.5 21 L5 23 Z" fill="url(#brand-grad)"/>
+          <path d="M16 9 L17.4 19 L16 22.5 L14.6 19 Z" fill="#f8fafc"/>
+        </svg>
+        <span class="brand-name">BlackbirdWorks</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul role="list" class="nav-list">
+          <li><a href="#featured">Featured</a></li>
+          <li><a href="#projects">Repositories</a></li>
+          <li><a href="#principles">Principles</a></li>
+          <li>
+            <a href="https://github.com/BlackbirdWorks" target="_blank" rel="noopener noreferrer">
+              GitHub
+              <span class="visually-hidden"> organization (opens in new tab)</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <button type="button" id="theme-toggle" class="theme-toggle">
+        <span class="theme-option theme-option--to-dark">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <span class="visually-hidden">Switch to dark theme</span>
+        </span>
+        <span class="theme-option theme-option--to-light">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <span class="visually-hidden">Switch to light theme</span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Open-Source Engineering Studio</p>
+        <h1 id="main-content" tabindex="-1">Fast, self-hosted Go infrastructure &amp; developer tools.</h1>
+        <p class="hero-lead">
+          BlackbirdWorks builds single-binary cloud emulators, OpenFeature flag relays, composable Huma v2 middleware,
+          observability utilities, and Cast audio tooling designed to run fast with minimal operational drag.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Explore 8 Repositories</a>
+          <a href="https://github.com/BlackbirdWorks" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            View BlackbirdWorks on GitHub
+          </a>
+        </div>
+
+        <dl class="hero-stats">
+          <div class="stat-card">
+            <dt>Public Repositories</dt>
+            <dd>8</dd>
+          </div>
+          <div class="stat-card">
+            <dt>Emulated AWS APIs</dt>
+            <dd>150+</dd>
+          </div>
+          <div class="stat-card">
+            <dt>Primary Runtime</dt>
+            <dd>Go</dd>
+          </div>
+          <div class="stat-card">
+            <dt>Open Source License</dt>
+            <dd>MIT</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="featured" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured Projects</h2>
+          <p class="section-subtitle">
+            Flagship systems engineered for local development speed, open standards, and single-binary deployment.
+          </p>
+        </div>
+
+        <div class="featured-grid">
+          <div class="featured-card-wrap">
+            <article class="featured-card reveal-item">
+              <div class="card-meta-row">
+                <ul role="list" class="badge-list">
+                  <li><span class="badge badge-accent">Flagship</span></li>
+                  <li><span class="badge badge-lang"><span class="lang-dot lang-dot--go" aria-hidden="true"></span>Go</span></li>
+                  <li><span class="badge badge-version">v1.10.0</span></li>
+                </ul>
+                <span class="star-pill" aria-label="GitHub stars">
+                  <svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
+                  </svg>
+                  <span data-repo-stars="gopherstack">18</span>
+                </span>
+              </div>
+
+              <h3>gopherstack</h3>
+              <p class="card-blurb">
+                Lightweight, in-memory AWS cloud stack in a single Go binary. Emulates 150+ AWS service APIs locally
+                in milliseconds with real cross-service integration (DynamoDB Streams to Lambda, SNS to SQS fan-out,
+                EventBridge Scheduler &amp; Pipes), a built-in web dashboard, named state snapshots, and a native MCP server
+                for AI assistants.
+              </p>
+
+              <div class="snippet-box">
+                <div class="snippet-header">
+                  <span id="gopherstack-cmd-label" class="snippet-label">Quick start</span>
+                  <button type="button" class="copy-btn" data-copy="docker run -p 8000:8000 ghcr.io/blackbirdworks/gopherstack:latest">
+                    Copy <span class="visually-hidden">Gopherstack command</span>
+                  </button>
+                </div>
+                <pre role="region" aria-labelledby="gopherstack-cmd-label" tabindex="0"><code>docker run -p 8000:8000 ghcr.io/blackbirdworks/gopherstack:latest</code></pre>
+              </div>
+
+              <div class="card-actions">
+                <a href="https://github.com/BlackbirdWorks/gopherstack" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  GitHub Repository <span class="visually-hidden">for gopherstack</span>
+                </a>
+                <a href="https://pkg.go.dev/github.com/blackbirdworks/gopherstack" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                  Go Reference <span class="visually-hidden">for gopherstack</span>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="featured-card-wrap">
+            <article class="featured-card reveal-item">
+              <div class="card-meta-row">
+                <ul role="list" class="badge-list">
+                  <li><span class="badge badge-accent">Flagship</span></li>
+                  <li><span class="badge badge-lang"><span class="lang-dot lang-dot--go" aria-hidden="true"></span>Go</span></li>
+                  <li><span class="badge badge-version">v0.1.0</span></li>
+                  <li><span class="badge badge-live">Live Docs</span></li>
+                </ul>
+                <span class="star-pill" aria-label="GitHub stars">
+                  <svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
+                  </svg>
+                  <span data-repo-stars="semaphore">1</span>
+                </span>
+              </div>
+
+              <h3>semaphore</h3>
+              <p class="card-blurb">
+                Self-hosted, cloud-native feature flag relay proxy and embeddable Go evaluation engine built on
+                OpenFeature and the OFREP protocol. Wire-compatible with GO Feature Flag providers with a vendored
+                rules engine, flexible retrievers and exporters, and full hosted documentation.
+              </p>
+
+              <div class="snippet-box">
+                <div class="snippet-header">
+                  <span id="semaphore-cmd-label" class="snippet-label">Quick start</span>
+                  <button type="button" class="copy-btn" data-copy="./semaphore --config semaphore-proxy.yaml">
+                    Copy <span class="visually-hidden">Semaphore command</span>
+                  </button>
+                </div>
+                <pre role="region" aria-labelledby="semaphore-cmd-label" tabindex="0"><code>./semaphore --config semaphore-proxy.yaml</code></pre>
+              </div>
+
+              <div class="card-actions">
+                <a href="https://semaphore.blackbirdworks.dev/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  Live Docs <span class="visually-hidden">for semaphore</span>
+                </a>
+                <a href="https://github.com/BlackbirdWorks/semaphore" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+                  GitHub Repository <span class="visually-hidden">for semaphore</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Published Repositories</h2>
+          <p class="section-subtitle">
+            Every public repository maintained under the BlackbirdWorks organization, with direct links to source code,
+            releases, and live pages.
+          </p>
+        </div>
+
+        <search class="repo-controls">
+          <div class="filter-group" role="group" aria-label="Filter repositories by category">
+            <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">
+              All <span class="filter-count">8</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="original" aria-pressed="false">
+              Original <span class="filter-count">6</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="go" aria-pressed="false">
+              Go <span class="filter-count">7</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="pages" aria-pressed="false">
+              Live Pages <span class="filter-count">2</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="fork" aria-pressed="false">
+              Forks <span class="filter-count">2</span>
+            </button>
+          </div>
+
+          <div class="search-field">
+            <label for="repo-search" class="visually-hidden">Filter repositories by name, language, or topic</label>
+            <input type="search" id="repo-search" placeholder="Search repos, Go, AWS, Loki..." autocomplete="off">
+          </div>
+        </search>
+
+        <p id="repo-status" class="repo-status" aria-live="polite">Showing 8 of 8 repositories</p>
+
+        <div class="repo-grid" id="repo-grid">
+          <article
+            class="repo-card reveal-item"
+            data-repo="gopherstack"
+            data-origin="original"
+            data-lang="go"
+            data-has-pages="false"
+            data-search="gopherstack aws localstack terraform mcp emulator go cloud lambda s3 dynamodb"
+          >
+            <header class="repo-card-header">
+              <div class="repo-title-row">
+                <h3>gopherstack</h3>
+                <span class="star-pill" aria-label="GitHub stars">
+                  <svg aria-hidden="true" viewBox="0 0 16 16" width="13" height="13" fill="currentColor">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
+                  </svg>
+                  <span data-repo-stars="gopherstack">18</span>
+                </span>
+              </div>
+              <ul role="list" class="badge-list">
+                <li><span class="badge badge-origin">Original</span></li>
+                <li><span class="badge badge-lang"><span class="lang-dot lang-dot--go" aria-hidden="true"></span>Go</span></li>
+                <li><span class="badge badge-version">v1.10.0</span></li>
+              </ul>
+            </header>
+
+            <p class="repo-blurb">
+              Lightweight, in-memory LocalStack alternative in a single Go binary emulating 150+ AWS services in
+              milliseconds with real event pipelines, state snapshots, a web dashboard, and a built-in MCP server.
+            </p>
+
+            <ul role="list" class="topic-list">
+              <li>AWS</li>
+              <li>LocalStack</li>
+              <li>Terraform</li>
+              <li>MCP</li>
+            </ul>
+
+            <footer class="repo-links">
+              <a href="https://github.com/BlackbirdWorks/gopherstack" target="_blank" rel="noopener noreferrer" class="repo-link repo-link--primary">
+                GitHub Repo <span class="visually-hidden">for gopherstack</span>
+              </a>
+              <a href="https://pkg.go.dev/github.com/blackbirdworks/gopherstack" target="_blank" rel="noopener noreferrer" class="repo-link">
+                Go Docs <span class="visually-hidden">for gopherstack</span>
+              </a>
+            </footer>
+          </article>
+
+          <article
+            class="repo-card reveal-item"
+            data-repo="semaphore"
+            data-origin="original"
+            data-lang="go"
+            data-has-pages="true"
+            data-search="semaphore openfeature ofrep feature flags go relay proxy vitepress docs"
+          >
+            <header class="repo-card-header">
+              <div class="repo-title-row">
+                <h3>semaphore</h3>
+                <span class="star-pill" aria-label="GitHub stars">
+                  <svg aria-hidden="true" viewBox="0 0 16 16" width="13" height="13" fill="currentColor">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
+                  </svg>
+                  <span data-repo-stars="semaphore">1</span>
+                </span>
+              </div>
+              <ul role="list" class="badge-list">
+                <li><span class="badge badge-origin">Original</span></li>
+                <li><span class="badge badge-lang"><span class="lang-dot lang-dot--go" aria-hidden="true"></span>Go</span></li>
+                <li><span class="badge badge-version">v0.1.0</span></li>
+                <li><span class="badge badge-live">Live Site</span></li>
+              </ul>
+            </header>
+
+            <p class="repo-blurb">
+              Self-hosted feature flag relay proxy and embeddable Go engine speaking OpenFeature OFREP. Derived from
+              GO Feature Flag with a vendored rules engine and hosted VitePress documentation.
+            </p>
+
+            <ul role="list" class="topic-list">
+              <li>OpenFeature</li>
+              <li>OFREP</li>
+              <li>Feature Flags</li>
+              <li>Go</li>
+            </ul>
+
+            <footer class="repo-links">
+              <a href="https://semaphore.blackbirdworks.dev/" target="_blank" rel="noopener noreferrer" class="repo-link repo-link--primary">
+                Live Docs <span class="visually-hidden">for semaphore</span>
+              </a>
+              <a href="https://github.com/BlackbirdWorks/semaphore" target="_blank" rel="noopener noreferrer" class="repo-link">
+                GitHub Repo <span class="visually-hidden">for semaphore</span>
+              </a>
+            </footer>
+          </article>
+
+          <article
+            class="repo-card reveal-item"
+            data-repo="huma-middleware"
+            data-origin="original"
+            data-lang="go"
+            data-has-pages="false"
+            data-search="huma-middleware huma v2 opentelemetry otelhttp slog middleware tracing logging compression recovery cleanpath go"
+          >
+            <header class="repo-card-header">
+              <div class="repo-title-row">
+                <h3>huma-middleware</h3>
+                <span class="star-pill" aria-label="GitHub stars">
+                  <svg aria-hidden="true" viewBox="0 0 16 16" width="13" height="13" fill="currentColor">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
+                  </svg>
+                  <span data-repo-stars="huma-middleware">1</span>
+                </span>
+              </div>
+              <ul role="list" class="badge-list">
+                <li><span class="badge badge-origin">Original</span></li>
+                <li><span class="badge badge-lang"><span class="lang-dot lang-dot--go" aria-hidden="true"></span>Go</span></li>
+                <li><span class="badge badge-version">v0.2.0</span></li>
+              </ul>
+            </header>
+
+            <p class="repo-blurb">
+              Router-agnostic middleware suite for Huma v2 split into lean per-feature packages: OpenTelemetry tracing
+              (<code>otelhttp</code>), <code>log/slog</code> context logging, allocation-free access logs, panic recovery,
+              zstd/brotli/gzip compression, and pre-routing path cleaning.
+            </p>
+
+            <ul role="list" class="topic-list">
+              <li>Huma v2</li>
+              <li>OpenTelemetry</li>
+              <li>slog</li>
+              <li>Middleware</li>
+            </ul>
+
+            <footer class="repo-links">
+              <a href="https://github.com/BlackbirdWorks/huma-middleware" target="_blank" rel="noopener noreferrer" class="repo-link repo-link--primary">
+                GitHub Repo <span class="visually-hidden">for huma-middleware</span>
+              </a>
+              <a href="https://pkg.go.dev/github.com/blackbirdworks/huma-middleware" target="_blank" rel="noopener noreferrer" class="repo-link">
+                Go Docs <span class="visually-hidden">for huma-middleware</span>
+              </a>
+            </footer>
+          </article>
+
+          <article
+            class="repo-card reveal-item"
+            data-repo="gopowerwall"
+            data-origin="original"
+            data-lang="go"
+            data-has-pages="false"
+            data-search="gopowerwall tesla powerwall pypowerwall tedapi v1r http proxy home assistant grafana go energy"
+          >
+            <header class="repo-card-header">
+              <div class="repo-title-row">
+                <h3>gopowerwall</h3>
+                <span class="star-pill" aria-label="GitHub stars">
+                  <svg aria-hidden="true" viewBox="0 0 16 16" width="13" height="13" fill="currentColor">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
+                  </svg>
+                  <span data-repo-stars="gopowerwall">1</span>
+                </span>
+              </div>
+              <ul role="list" class="badge-list">
+                <li><span class="badge badge-origin">Original</span></li>
+                <li><span class="badge badge-lang"><span class="lang-dot lang-dot--go" aria-hidden="true"></span>Go</span></li>
+                <li><span class="badge badge-version">v0.2.9</span></li>
+              </ul>
+            </header>
+
+            <p class="repo-blurb">
+              Idiomatic Go port of <code>pypowerwall</code> for Tesla Energy Gateways (Powerwall 2, Powerwall+, and
+              Powerwall 3). Ships a CLI and drop-in HTTP proxy supporting Local LAN, TEDAPI WiFi, RSA-signed v1r, Cloud,
+              and Fleet API backends for Home Assistant and Grafana.
+            </p>
+
+            <ul role="list" class="topic-list">
+              <li>Tesla Powerwall</li>
+              <li>TEDAPI</li>
+              <li>HTTP Proxy</li>
+              <li>Home Assistant</li>
+            </ul>
+
+            <footer class="repo-links">
+              <a href="https://github.com/BlackbirdWorks/gopowerwall" target="_blank" rel="noopener noreferrer" class="repo-link repo-link--primary">
+                GitHub Repo <span class="visually-hidden">for gopowerwall</span>
+              </a>
+              <a href="https://github.com/BlackbirdWorks/gopowerwall/releases" target="_blank" rel="noopener noreferrer" class="repo-link">
+                Releases <span class="visually-hidden">for gopowerwall</span>
+              </a>
+            </footer>
+          </article>
+
+          <article
+            class="repo-card reveal-item"
+            data-repo="loki-prune"
+            data-origin="original"
+            data-lang="go"
+            data-has-pages="false"
+            data-search="loki-prune grafana loki zfs zstandard zstd gzip observability log rotation prune go"
+          >
+            <header class="repo-card-header">
+              <div class="repo-title-row">
+                <h3>loki-prune</h3>
+                <span class="star-pill" aria-label="GitHub stars">
+                  <svg aria-hidden="true" viewBox="0 0 16 16" width="13" height="13" fill="currentColor">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
+                  </svg>
+                  <span data-repo-stars="loki-prune">0</span>
+                </span>
+              </div>
+              <ul role="list" class="badge-list">
+                <li><span class="badge badge-origin">Original</span></li>
+                <li><span class="badge badge-lang"><span class="lang-dot lang-dot--go" aria-hidden="true"></span>Go</span></li>
+                <li><span class="badge badge-version">v1.2.4</span></li>
+              </ul>
+            </header>
+
+            <p class="repo-blurb">
+              Automated storage-quota rotator and streaming <code>zstd</code>/<code>gzip</code> compression engine for
+              Grafana Loki on local disks, ZFS datasets, and PVCs. Coordinates <code>POST /flush</code> via Loki's API
+              in stateless polling or real-time <code>fsnotify</code> mode.
+            </p>
+
+            <ul role="list" class="topic-list">
+              <li>Grafana Loki</li>
+              <li>ZFS</li>
+              <li>Zstandard</li>
+              <li>Observability</li>
+            </ul>
+
+            <footer class="repo-links">
+              <a href="https://github.com/BlackbirdWorks/loki-prune" target="_blank" rel="noopener noreferrer" class="repo-link repo-link--primary">
+                GitHub Repo <span class="visually-hidden">for loki-prune</span>
+              </a>
+              <a href="https://github.com/BlackbirdWorks/loki-prune/releases" target="_blank" rel="noopener noreferrer" class="repo-link">
+                Releases <span class="visually-hidden">for loki-prune</span>
+              </a>
+            </footer>
+          </article>
+
+          <article
+            class="repo-card reveal-item"
+            data-repo="bswn-cast-receiver"
+            data-origin="original"
+            data-lang="javascript"
+            data-has-pages="true"
+            data-search="bswn-cast-receiver google cast web audio vite gapless white noise javascript receiver"
+          >
+            <header class="repo-card-header">
+              <div class="repo-title-row">
+                <h3>bswn-cast-receiver</h3>
+                <span class="star-pill" aria-label="GitHub stars">
+                  <svg aria-hidden="true" viewBox="0 0 16 16" width="13" height="13" fill="currentColor">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
+                  </svg>
+                  <span data-repo-stars="bswn-cast-receiver">0</span>
+                </span>
+              </div>
+              <ul role="list" class="badge-list">
+                <li><span class="badge badge-origin">Original</span></li>
+                <li><span class="badge badge-lang"><span class="lang-dot lang-dot--js" aria-hidden="true"></span>JavaScript</span></li>
+                <li><span class="badge badge-version">v1.0.1</span></li>
+                <li><span class="badge badge-live">Live Site</span></li>
+              </ul>
+            </header>
+
+            <p class="repo-blurb">
+              Custom Google Cast Web Receiver for Blackbird White Noise. Combines Web Audio (<code>Gapless5</code>)
+              crossfaded Opus looping with Screen Wake Lock for uninterrupted ambient sound on Cast devices.
+            </p>
+
+            <ul role="list" class="topic-list">
+              <li>Google Cast</li>
+              <li>Web Audio</li>
+              <li>Vite</li>
+              <li>Gapless</li>
+            </ul>
+
+            <footer class="repo-links">
+              <a href="https://blackbirdworks.github.io/bswn-cast-receiver/" target="_blank" rel="noopener noreferrer" class="repo-link repo-link--primary">
+                Live Receiver <span class="visually-hidden">for bswn-cast-receiver</span>
+              </a>
+              <a href="https://github.com/BlackbirdWorks/bswn-cast-receiver" target="_blank" rel="noopener noreferrer" class="repo-link">
+                GitHub Repo <span class="visually-hidden">for bswn-cast-receiver</span>
+              </a>
+            </footer>
+          </article>
+
+          <article
+            class="repo-card reveal-item"
+            data-repo="gocover-cobertura"
+            data-origin="fork"
+            data-lang="go"
+            data-has-pages="false"
+            data-search="gocover-cobertura go coverage cobertura xml ci cd fork github actions gitlab jenkins"
+          >
+            <header class="repo-card-header">
+              <div class="repo-title-row">
+                <h3>gocover-cobertura</h3>
+                <span class="star-pill" aria-label="GitHub stars">
+                  <svg aria-hidden="true" viewBox="0 0 16 16" width="13" height="13" fill="currentColor">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
+                  </svg>
+                  <span data-repo-stars="gocover-cobertura">0</span>
+                </span>
+              </div>
+              <ul role="list" class="badge-list">
+                <li><span class="badge badge-fork">Maintained Fork</span></li>
+                <li><span class="badge badge-lang"><span class="lang-dot lang-dot--go" aria-hidden="true"></span>Go</span></li>
+                <li><span class="badge badge-version">v2.0.0</span></li>
+              </ul>
+            </header>
+
+            <p class="repo-blurb">
+              Maintained fork converting <code>go test -coverprofile</code> output into Cobertura XML for CI coverage
+              reports in GitHub Actions, GitLab CI, and Jenkins, supporting Unix pipes, file flags, and multi-file glob
+              patterns.
+            </p>
+
+            <ul role="list" class="topic-list">
+              <li>Go Coverage</li>
+              <li>Cobertura XML</li>
+              <li>CI/CD</li>
+            </ul>
+
+            <footer class="repo-links">
+              <a href="https://github.com/BlackbirdWorks/gocover-cobertura" target="_blank" rel="noopener noreferrer" class="repo-link repo-link--primary">
+                GitHub Repo <span class="visually-hidden">for gocover-cobertura</span>
+              </a>
+              <a href="https://github.com/BlackbirdWorks/gocover-cobertura/releases" target="_blank" rel="noopener noreferrer" class="repo-link">
+                Releases <span class="visually-hidden">for gocover-cobertura</span>
+              </a>
+            </footer>
+          </article>
+
+          <article
+            class="repo-card reveal-item"
+            data-repo="rules"
+            data-origin="fork"
+            data-lang="go"
+            data-has-pages="false"
+            data-search="rules antlr rules engine query parser go fork golang evaluate"
+          >
+            <header class="repo-card-header">
+              <div class="repo-title-row">
+                <h3>rules</h3>
+                <span class="star-pill" aria-label="GitHub stars">
+                  <svg aria-hidden="true" viewBox="0 0 16 16" width="13" height="13" fill="currentColor">
+                    <path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/>
+                  </svg>
+                  <span data-repo-stars="rules">0</span>
+                </span>
+              </div>
+              <ul role="list" class="badge-list">
+                <li><span class="badge badge-fork">Fork</span></li>
+                <li><span class="badge badge-lang"><span class="lang-dot lang-dot--go" aria-hidden="true"></span>Go</span></li>
+              </ul>
+            </header>
+
+            <p class="repo-blurb">
+              ANTLR-powered generic rules engine in Go for evaluating structured comparison and logical query
+              expressions (<code>eq</code>, <code>in</code>, <code>sw</code>, <code>co</code>, <code>and</code>,
+              <code>or</code>, <code>not</code>) against nested <code>map[string]any</code> payloads.
+            </p>
+
+            <ul role="list" class="topic-list">
+              <li>ANTLR</li>
+              <li>Rules Engine</li>
+              <li>Query Parser</li>
+              <li>Go</li>
+            </ul>
+
+            <footer class="repo-links">
+              <a href="https://github.com/BlackbirdWorks/rules" target="_blank" rel="noopener noreferrer" class="repo-link repo-link--primary">
+                GitHub Repo <span class="visually-hidden">for rules</span>
+              </a>
+            </footer>
+          </article>
+        </div>
+
+        <div id="repo-empty" class="empty-state" hidden>
+          <p>No published repositories match that filter and search combination.</p>
+          <button type="button" id="reset-filters" class="btn btn-secondary btn-sm">Reset filters</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="principles" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Built for Real Systems</h2>
+          <p class="section-subtitle">
+            Every project focuses on clean ergonomics, deterministic behavior, and low-overhead deployment.
+          </p>
+        </div>
+
+        <div class="principles-grid">
+          <article class="principle-card reveal-item">
+            <p class="principle-index">01</p>
+            <h3>Single-Binary Efficiency</h3>
+            <p>
+              Whether emulating 150+ AWS APIs in memory or rotating Loki chunks on a ZFS NAS, tools ship as compact,
+              self-contained binaries with zero runtime bloat.
+            </p>
+          </article>
+
+          <article class="principle-card reveal-item">
+            <p class="principle-index">02</p>
+            <h3>Open Protocols &amp; Wire Compatibility</h3>
+            <p>
+              Built around established standards—AWS SDK protocols, OpenFeature OFREP, OpenTelemetry, Cobertura XML,
+              and Huma's router-agnostic interfaces—so existing tooling works out of the box.
+            </p>
+          </article>
+
+          <article class="principle-card reveal-item">
+            <p class="principle-index">03</p>
+            <h3>Self-Hosted Pragmatism</h3>
+            <p>
+              Designed for developers and homelab/production operators alike: minimal configuration, clear diagnostics,
+              and reliable operation on local workstations, containers, or dedicated hardware.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">BlackbirdWorks</span>
+        <p class="footer-meta">&copy; 2026 BlackbirdWorks &middot; MIT License</p>
+      </div>
+
+      <nav aria-label="Footer">
+        <ul role="list" class="footer-links">
+          <li>
+            <a href="https://github.com/BlackbirdWorks" target="_blank" rel="noopener noreferrer">
+              GitHub Organization
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/BlackbirdWorks/portfolio" target="_blank" rel="noopener noreferrer">
+              Portfolio Source
+            </a>
+          </li>
+          <li>
+            <a href="https://semaphore.blackbirdworks.dev/" target="_blank" rel="noopener noreferrer">
+              Semaphore Docs
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="copy-status" class="visually-hidden" aria-live="polite"></div>
+</body>
+</html>
