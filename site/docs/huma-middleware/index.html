@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      const s = localStorage.getItem("color-scheme");
+      if (s === "light" || s === "dark") {
+        document.querySelector('meta[name="color-scheme"]').content = s;
+      }
+    } catch {}
+  </script>
+  <title>huma-middleware Docs | BlackbirdWorks</title>
+  <meta name="description" content="Router-agnostic OpenTelemetry tracing, slog logging, access logs, panic recovery, compression, and path-cleaning middleware for Huma v2.">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css?v=5">
+  <script type="module" src="../../app.js?v=5"></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../../" class="brand">
+        <svg class="brand-mark" aria-hidden="true" viewBox="0 0 64 64" width="34" height="34">
+          <defs>
+            <linearGradient id="brand-sr71" x1="0" y1="0" x2="0.4" y2="1">
+              <stop offset="0%" stop-color="#f8fafc"/>
+              <stop offset="55%" stop-color="#a5b4fc"/>
+              <stop offset="100%" stop-color="#22d3ee"/>
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="14" fill="#0f172a"/>
+          <g transform="translate(16.4 4.7) scale(0.13)">
+            <path
+              fill="url(#brand-sr71)"
+              d="M 119 22 L 119 9 L 121 9 L 121 22 C 129 36 139 64 143.5 113 L 143.5 210 L 161 241 L 167 232 L 170.5 207 L 173 228 L 182 244 C 190 258 192.5 266 192.5 306 L 221 361 C 223 366 222 372 218 375 L 189 384 L 184 378 L 179 378 L 178 382 L 170 378 L 169 382 L 162 377 L 156 389 L 136 396 L 123.5 399 L 120 410 L 116.5 399 L 104 396 L 84 389 L 78 377 L 71 382 L 70 378 L 62 382 L 61 378 L 56 378 L 51 384 L 22 375 C 18 372 17 366 19 361 L 47.5 306 C 47.5 266 50 258 58 244 L 67 228 L 69.5 207 L 73 232 L 79 241 L 96.5 210 L 96.5 113 C 101 64 111 36 119 22 Z"
+            />
+          </g>
+        </svg>
+        <span class="brand-name">BlackbirdWorks</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul role="list" class="nav-list">
+          <li><a href="../../#featured">Featured</a></li>
+          <li><a href="../../#projects">Repositories</a></li>
+          <li><a href="../../#principles">Principles</a></li>
+          <li>
+            <a href="https://github.com/BlackbirdWorks" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="https://buymeacoffee.com/andrewbishr" target="_blank" rel="noopener noreferrer" class="btn btn-coffee btn-header-coffee">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+          <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+          <line x1="6" y1="2" x2="6" y2="4"/>
+          <line x1="10" y1="2" x2="10" y2="4"/>
+          <line x1="14" y1="2" x2="14" y2="4"/>
+        </svg>
+        Buy Me a Coffee
+      </a>
+
+      <button type="button" id="theme-toggle" class="theme-toggle">
+        <span class="theme-option theme-option--to-dark">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <span class="visually-hidden">Switch to dark theme</span>
+        </span>
+        <span class="theme-option theme-option--to-light">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+          </svg>
+          <span class="visually-hidden">Switch to light theme</span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container doc-main">
+    <nav class="doc-breadcrumb" aria-label="Breadcrumb">
+      <a href="../../#projects">&larr; All Repositories</a>
+    </nav>
+
+    <header class="doc-hero">
+      <div class="doc-hero-top">
+        <h1 id="main-content" tabindex="-1">huma-middleware</h1>
+        <ul role="list" class="badge-list">
+          <li><span class="badge badge-origin">Original</span></li>
+          <li><span class="badge badge-lang"><span class="lang-dot lang-dot--go" aria-hidden="true"></span>Go</span></li>
+          <li><span class="badge badge-version">v0.2.0</span></li>
+        </ul>
+      </div>
+      <p class="hero-lead">
+        Router-agnostic middleware for <a href="https://huma.rocks/" target="_blank" rel="noopener noreferrer">Huma v2</a>
+        (<code>humago</code>, <code>humachi</code>, <code>humagin</code>, and others). Each middleware lives in its own
+        package so an application links only the dependencies of the ones it uses.
+      </p>
+      <div class="doc-hero-actions">
+        <a href="https://github.com/BlackbirdWorks/huma-middleware" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+          GitHub Repo <span class="visually-hidden">for huma-middleware</span>
+        </a>
+        <a href="https://pkg.go.dev/github.com/blackbirdworks/huma-middleware" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+          Go Docs (pkg.go.dev) <span class="visually-hidden">for huma-middleware</span>
+        </a>
+        <a href="https://huma.rocks/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-sm">
+          Huma v2
+        </a>
+      </div>
+    </header>
+
+    <section class="doc-section">
+      <h2>Install</h2>
+      <div class="snippet-box">
+        <div class="snippet-header">
+          <span id="huma-install-label" class="snippet-label">Go Module</span>
+          <button type="button" class="copy-btn" data-copy="go get github.com/blackbirdworks/huma-middleware">
+            Copy <span class="visually-hidden">huma-middleware go get command</span>
+          </button>
+        </div>
+        <pre role="region" aria-labelledby="huma-install-label" tabindex="0"><code>go get github.com/blackbirdworks/huma-middleware</code></pre>
+      </div>
+    </section>
+
+    <section class="doc-section">
+      <h2>Included Packages</h2>
+      <div class="doc-table-wrap">
+        <table class="doc-table">
+          <caption>Middleware packages and responsibilities</caption>
+          <thead>
+            <tr>
+              <th scope="col">Package</th>
+              <th scope="col">Layer</th>
+              <th scope="col">What it provides</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>middleware/cleanpath</code></td>
+              <td><code>net/http</code></td>
+              <td>Normalizes request paths (<code>//a/../b</code> to <code>/b</code>) before router matching.</td>
+            </tr>
+            <tr>
+              <td><code>middleware/tracing</code></td>
+              <td>Huma</td>
+              <td>OpenTelemetry server spans (<code>METHOD /route/{template}</code>) and <code>otelhttp</code> HTTP metrics.</td>
+            </tr>
+            <tr>
+              <td><code>middleware/logging</code></td>
+              <td>Huma</td>
+              <td>Request-scoped <code>log/slog</code> logger stored in context with per-request field enrichment.</td>
+            </tr>
+            <tr>
+              <td><code>middleware/accesslog</code></td>
+              <td>Huma</td>
+              <td>One allocation-free structured access log record per request.</td>
+            </tr>
+            <tr>
+              <td><code>middleware/recovery</code></td>
+              <td>Huma</td>
+              <td>Recovers panics, logs stack traces, marks the active span as error, and answers HTTP 500.</td>
+            </tr>
+            <tr>
+              <td><code>middleware/compression</code></td>
+              <td>Huma</td>
+              <td>Content-aware <code>zstd</code>, <code>brotli</code>, and <code>gzip</code> compression (1024 B min, skips <code>text/event-stream</code> &amp; pre-compressed media).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="doc-section">
+      <h2>Usage Example</h2>
+      <div class="snippet-box">
+        <div class="snippet-header">
+          <span id="huma-example-label" class="snippet-label">Go</span>
+          <button type="button" class="copy-btn" data-copy="api.UseMiddleware(tracing.New(), recovery.New(), logging.New(), accesslog.New(), compression.New())">
+            Copy <span class="visually-hidden">huma-middleware usage snippet</span>
+          </button>
+        </div>
+        <pre role="region" aria-labelledby="huma-example-label" tabindex="0"><code>mux := http.NewServeMux()
+api := humago.New(mux, huma.DefaultConfig("example", "1.0.0"))
+api.UseMiddleware(
+  tracing.New(tracing.WithSkipPaths("/healthz")),
+  recovery.New(),
+  logging.New(),
+  accesslog.New(),
+  compression.New(),
+)
+handler := cleanpath.Handler(mux) // wrap before routing</code></pre>
+      </div>
+    </section>
+
+    <nav class="doc-siblings" aria-label="More Library Docs">
+      <h2>More Library Docs</h2>
+      <ul role="list" class="doc-sibling-list">
+        <li><a href="../loki-prune/" class="doc-sibling-link">loki-prune</a></li>
+        <li><a href="../gopowerwall/" class="doc-sibling-link">gopowerwall</a></li>
+        <li><a href="../gocover-cobertura/" class="doc-sibling-link">gocover-cobertura</a></li>
+      </ul>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-name">BlackbirdWorks</span>
+        <p class="footer-meta">&copy; 2026 BlackbirdWorks &middot; MIT License</p>
+      </div>
+
+      <nav aria-label="Footer">
+        <ul role="list" class="footer-links">
+          <li>
+            <a href="https://github.com/BlackbirdWorks" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/andrew-bishop-11721562/" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://buymeacoffee.com/andrewbishr" target="_blank" rel="noopener noreferrer">
+              Buy Me a Coffee
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/BlackbirdWorks/portfolio" target="_blank" rel="noopener noreferrer">
+              Portfolio Source
+            </a>
+          </li>
+          <li>
+            <a href="https://semaphore.blackbirdworks.dev/" target="_blank" rel="noopener noreferrer">
+              Semaphore Docs
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <div id="copy-status" class="visually-hidden" aria-live="polite"></div>
+</body>
+</html>

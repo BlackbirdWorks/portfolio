@@ -193,6 +193,7 @@ function updateStarCounts(repos) {
 }
 
 async function hydrateLiveRepoStats() {
+  if (!document.querySelector("[data-repo-stars]")) return;
   try {
     const cachedRaw = sessionStorage.getItem(STATS_CACHE_KEY);
     if (cachedRaw) {
@@ -227,64 +228,7 @@ async function hydrateLiveRepoStats() {
   }
 }
 
-function initDocDialogs() {
-  const triggers = Array.from(document.querySelectorAll("[data-doc-dialog]"));
-  const dialogs = Array.from(document.querySelectorAll("dialog.doc-dialog"));
-
-  function openDialogById(id, updateHash = true) {
-    const dialog = document.getElementById(id);
-    if (!dialog || dialog.open) return;
-    dialog.showModal();
-    if (updateHash && id.startsWith("doc-")) {
-      history.replaceState(null, "", `#docs/${id.slice(4)}`);
-    }
-  }
-
-  for (const trigger of triggers) {
-    trigger.addEventListener("click", () => {
-      const id = trigger.getAttribute("data-doc-dialog");
-      if (id) openDialogById(id);
-    });
-  }
-
-  for (const dialog of dialogs) {
-    dialog.addEventListener("close", () => {
-      dialog.returnValue = "";
-      if (location.hash === `#docs/${dialog.id.slice(4)}`) {
-        history.replaceState(null, "", "#projects");
-      }
-    });
-  }
-
-  // Fallback for browsers without <dialog closedby="any"> (e.g. Safari)
-  if (!("closedBy" in HTMLDialogElement.prototype)) {
-    const outside = (e, dialog) => {
-      const r = dialog.getBoundingClientRect();
-      return e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom;
-    };
-    for (const dialog of document.querySelectorAll('dialog[closedby="any"]')) {
-      let pressedOutside = false;
-      dialog.addEventListener("pointerdown", (e) => {
-        pressedOutside = outside(e, dialog);
-      });
-      dialog.addEventListener("pointerup", (e) => {
-        if (pressedOutside && outside(e, dialog)) dialog.close();
-      });
-    }
-  }
-
-  function syncFromHash() {
-    if (!location.hash.startsWith("#docs/")) return;
-    const slug = location.hash.slice("#docs/".length);
-    if (slug) openDialogById(`doc-${slug}`, false);
-  }
-
-  window.addEventListener("hashchange", syncFromHash);
-  syncFromHash();
-}
-
 initThemeToggle();
 initRepoFilters();
 initCopyButtons();
-initDocDialogs();
 hydrateLiveRepoStats();
