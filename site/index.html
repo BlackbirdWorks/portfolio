@@ -33,17 +33,21 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="brand">
-        <svg class="brand-mark" role="img" viewBox="0 0 32 32" width="32" height="32">
-          <title>BlackbirdWorks</title>
+        <svg class="brand-mark" aria-hidden="true" viewBox="0 0 64 64" width="34" height="34">
           <defs>
-            <linearGradient id="brand-grad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#4f46e5"/>
-              <stop offset="100%" stop-color="#06b6d4"/>
+            <linearGradient id="brand-sr71" x1="0" y1="0" x2="0.4" y2="1">
+              <stop offset="0%" stop-color="#f8fafc"/>
+              <stop offset="55%" stop-color="#a5b4fc"/>
+              <stop offset="100%" stop-color="#22d3ee"/>
             </linearGradient>
           </defs>
-          <rect width="32" height="32" rx="8" fill="#0f172a"/>
-          <path d="M16 5 L27 23 L19.5 21 L16 27 L12.5 21 L5 23 Z" fill="url(#brand-grad)"/>
-          <path d="M16 9 L17.4 19 L16 22.5 L14.6 19 Z" fill="#f8fafc"/>
+          <rect width="64" height="64" rx="14" fill="#0f172a"/>
+          <g transform="translate(16.4 4.7) scale(0.13)">
+            <path
+              fill="url(#brand-sr71)"
+              d="M 119 22 L 119 9 L 121 9 L 121 22 C 129 36 139 64 143.5 113 L 143.5 210 L 161 241 L 167 232 L 170.5 207 L 173 228 L 182 244 C 190 258 192.5 266 192.5 306 L 221 361 C 223 366 222 372 218 375 L 189 384 L 184 378 L 179 378 L 178 382 L 170 378 L 169 382 L 162 377 L 156 389 L 136 396 L 123.5 399 L 120 410 L 116.5 399 L 104 396 L 84 389 L 78 377 L 71 382 L 70 378 L 62 382 L 61 378 L 56 378 L 51 384 L 22 375 C 18 372 17 366 19 361 L 47.5 306 C 47.5 266 50 258 58 244 L 67 228 L 69.5 207 L 73 232 L 79 241 L 96.5 210 L 96.5 113 C 101 64 111 36 119 22 Z"
+            />
+          </g>
         </svg>
         <span class="brand-name">BlackbirdWorks</span>
       </a>
@@ -56,7 +60,6 @@
           <li>
             <a href="https://github.com/BlackbirdWorks" target="_blank" rel="noopener noreferrer">
               GitHub
-              <span class="visually-hidden"> organization (opens in new tab)</span>
             </a>
           </li>
         </ul>
@@ -83,28 +86,62 @@
   <main id="top">
     <section class="hero">
       <div class="container hero-inner">
-        <p class="eyebrow">Open-Source Engineering Studio</p>
-        <h1 id="main-content" tabindex="-1">Fast, self-hosted Go infrastructure &amp; developer tools.</h1>
-        <p class="hero-lead">
-          BlackbirdWorks builds single-binary cloud emulators, OpenFeature flag relays, composable Huma v2 middleware,
-          observability utilities, and Cast audio tooling designed to run fast with minimal operational drag.
-        </p>
+        <div class="hero-copy">
+          <p class="eyebrow">Open-Source Engineering Studio</p>
+          <h1 id="main-content" tabindex="-1">Fast, self-hosted Go infrastructure &amp; developer tools.</h1>
+          <p class="hero-lead">
+            BlackbirdWorks builds single-binary cloud emulators, OpenFeature flag relays, composable Huma v2 middleware,
+            observability utilities, and Cast audio tooling designed to run fast with minimal operational drag.
+          </p>
 
-        <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">Explore 8 Repositories</a>
-          <a href="https://github.com/BlackbirdWorks" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            View BlackbirdWorks on GitHub
-          </a>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">Explore 8 Repositories</a>
+            <a href="https://github.com/BlackbirdWorks" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg aria-hidden="true" viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/>
+              </svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/andrew-bishop-11721562/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="https://buymeacoffee.com/andrewbishr" target="_blank" rel="noopener noreferrer" class="btn btn-coffee">
+              <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+                <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+                <line x1="6" y1="2" x2="6" y2="4"/>
+                <line x1="10" y1="2" x2="10" y2="4"/>
+                <line x1="14" y1="2" x2="14" y2="4"/>
+              </svg>
+              Buy Me a Coffee
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-emblem" aria-hidden="true">
+          <svg class="hero-emblem-rings" viewBox="0 0 320 320" width="320" height="320">
+            <circle cx="160" cy="160" r="144" fill="none" stroke="currentColor" stroke-opacity="0.14" stroke-width="1" stroke-dasharray="4 6"/>
+            <circle cx="160" cy="160" r="112" fill="none" stroke="currentColor" stroke-opacity="0.2" stroke-width="1"/>
+            <line x1="160" y1="8" x2="160" y2="28" stroke="currentColor" stroke-opacity="0.28" stroke-width="1.5"/>
+            <line x1="160" y1="292" x2="160" y2="312" stroke="currentColor" stroke-opacity="0.28" stroke-width="1.5"/>
+            <line x1="8" y1="160" x2="28" y2="160" stroke="currentColor" stroke-opacity="0.28" stroke-width="1.5"/>
+            <line x1="292" y1="160" x2="312" y2="160" stroke="currentColor" stroke-opacity="0.28" stroke-width="1.5"/>
+          </svg>
+          <svg class="hero-sr71" viewBox="0 0 240 420" width="180" height="315">
+            <path
+              fill="currentColor"
+              d="M 119 22 L 119 9 L 121 9 L 121 22 C 129 36 139 64 143.5 113 L 143.5 210 L 161 241 L 167 232 L 170.5 207 L 173 228 L 182 244 C 190 258 192.5 266 192.5 306 L 221 361 C 223 366 222 372 218 375 L 189 384 L 184 378 L 179 378 L 178 382 L 170 378 L 169 382 L 162 377 L 156 389 L 136 396 L 123.5 399 L 120 410 L 116.5 399 L 104 396 L 84 389 L 78 377 L 71 382 L 70 378 L 62 382 L 61 378 L 56 378 L 51 384 L 22 375 C 18 372 17 366 19 361 L 47.5 306 C 47.5 266 50 258 58 244 L 67 228 L 69.5 207 L 73 232 L 79 241 L 96.5 210 L 96.5 113 C 101 64 111 36 119 22 Z"
+            />
+          </svg>
         </div>
 
         <dl class="hero-stats">
           <div class="stat-card">
             <dt>Public Repositories</dt>
             <dd>8</dd>
-          </div>
-          <div class="stat-card">
-            <dt>Emulated AWS APIs</dt>
-            <dd>150+</dd>
           </div>
           <div class="stat-card">
             <dt>Primary Runtime</dt>
@@ -697,7 +734,17 @@
         <ul role="list" class="footer-links">
           <li>
             <a href="https://github.com/BlackbirdWorks" target="_blank" rel="noopener noreferrer">
-              GitHub Organization
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/andrew-bishop-11721562/" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a href="https://buymeacoffee.com/andrewbishr" target="_blank" rel="noopener noreferrer">
+              Buy Me a Coffee
             </a>
           </li>
           <li>

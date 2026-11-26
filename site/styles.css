@@ -16,6 +16,10 @@
   --live-bg-light: #ecfeff;
   --live-border-light: #0891b2;
   --live-text-light: #155e75;
+  --coffee-bg-light: #fef3c7;
+  --coffee-bg-hover-light: #fde68a;
+  --coffee-border-light: #d97706;
+  --coffee-text-light: #78350f;
   --focus-ring-light: #4338ca;
   --scrollbar-track-light: #e2e8f0;
   --scrollbar-thumb-light: #64748b;
@@ -36,6 +40,10 @@
   --live-bg-dark: #083344;
   --live-border-dark: #22d3ee;
   --live-text-dark: #a5f3fc;
+  --coffee-bg-dark: #2b1e0a;
+  --coffee-bg-hover-dark: #3f2a0e;
+  --coffee-border-dark: #f59e0b;
+  --coffee-text-dark: #fde68a;
   --focus-ring-dark: #22d3ee;
   --scrollbar-track-dark: #0f172a;
   --scrollbar-thumb-dark: #64748b;
@@ -57,6 +65,10 @@
   --live-bg: var(--live-bg-light);
   --live-border: var(--live-border-light);
   --live-text: var(--live-text-light);
+  --coffee-bg: var(--coffee-bg-light);
+  --coffee-bg-hover: var(--coffee-bg-hover-light);
+  --coffee-border: var(--coffee-border-light);
+  --coffee-text: var(--coffee-text-light);
   --focus-ring: var(--focus-ring-light);
   --scrollbar-track: var(--scrollbar-track-light);
   --scrollbar-thumb: var(--scrollbar-thumb-light);
@@ -82,6 +94,10 @@
     --live-bg: var(--live-bg-dark);
     --live-border: var(--live-border-dark);
     --live-text: var(--live-text-dark);
+    --coffee-bg: var(--coffee-bg-dark);
+    --coffee-bg-hover: var(--coffee-bg-hover-dark);
+    --coffee-border: var(--coffee-border-dark);
+    --coffee-text: var(--coffee-text-dark);
     --focus-ring: var(--focus-ring-dark);
     --scrollbar-track: var(--scrollbar-track-dark);
     --scrollbar-thumb: var(--scrollbar-thumb-dark);
@@ -106,6 +122,10 @@
     --live-bg: var(--live-bg-dark);
     --live-border: var(--live-border-dark);
     --live-text: var(--live-text-dark);
+    --coffee-bg: var(--coffee-bg-dark);
+    --coffee-bg-hover: var(--coffee-bg-hover-dark);
+    --coffee-border: var(--coffee-border-dark);
+    --coffee-text: var(--coffee-text-dark);
     --focus-ring: var(--focus-ring-dark);
     --scrollbar-track: var(--scrollbar-track-dark);
     --scrollbar-thumb: var(--scrollbar-thumb-dark);
@@ -130,6 +150,10 @@
     --live-bg: var(--live-bg-light);
     --live-border: var(--live-border-light);
     --live-text: var(--live-text-light);
+    --coffee-bg: var(--coffee-bg-light);
+    --coffee-bg-hover: var(--coffee-bg-hover-light);
+    --coffee-border: var(--coffee-border-light);
+    --coffee-text: var(--coffee-text-light);
     --focus-ring: var(--focus-ring-light);
     --scrollbar-track: var(--scrollbar-track-light);
     --scrollbar-thumb: var(--scrollbar-thumb-light);
@@ -152,6 +176,10 @@
     --live-bg: light-dark(var(--live-bg-light), var(--live-bg-dark));
     --live-border: light-dark(var(--live-border-light), var(--live-border-dark));
     --live-text: light-dark(var(--live-text-light), var(--live-text-dark));
+    --coffee-bg: light-dark(var(--coffee-bg-light), var(--coffee-bg-dark));
+    --coffee-bg-hover: light-dark(var(--coffee-bg-hover-light), var(--coffee-bg-hover-dark));
+    --coffee-border: light-dark(var(--coffee-border-light), var(--coffee-border-dark));
+    --coffee-text: light-dark(var(--coffee-text-light), var(--coffee-text-dark));
     --focus-ring: light-dark(var(--focus-ring-light), var(--focus-ring-dark));
     --scrollbar-track: light-dark(var(--scrollbar-track-light), var(--scrollbar-track-dark));
     --scrollbar-thumb: light-dark(var(--scrollbar-thumb-light), var(--scrollbar-thumb-dark));
@@ -396,12 +424,69 @@ body {
 
 /* Hero */
 .hero {
-  padding-block: clamp(3rem, 7vw, 5.5rem) clamp(2.5rem, 5vw, 4rem);
+  padding-block: clamp(2.5rem, 6vw, 4.75rem) clamp(2.25rem, 5vw, 3.75rem);
 }
 
 .hero-inner {
   display: grid;
-  gap: 1.5rem;
+  gap: 1.75rem;
+}
+
+.hero-copy {
+  display: grid;
+  gap: 1.35rem;
+  min-inline-size: 0;
+}
+
+.hero-emblem {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-block-size: 190px;
+  padding: 1.15rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: radial-gradient(
+    circle at 50% 45%,
+    color-mix(in oklab, var(--brand) 14%, var(--bg-elevated)) 0%,
+    var(--bg-elevated) 72%
+  );
+  color: var(--text);
+  overflow: clip;
+}
+
+.hero-emblem-rings {
+  position: absolute;
+  inline-size: min(280px, 82%);
+  block-size: auto;
+  color: var(--brand);
+  pointer-events: none;
+}
+
+.hero-sr71 {
+  position: relative;
+  z-index: 1;
+  display: block;
+  inline-size: auto;
+  block-size: clamp(150px, 24vw, 275px);
+  color: var(--text);
+  filter: drop-shadow(0 12px 24px color-mix(in oklab, var(--brand) 22%, transparent));
+}
+
+@media (min-width: 900px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
+    align-items: center;
+    gap: 2rem 2.5rem;
+  }
+
+  .hero-emblem {
+    min-block-size: 320px;
+  }
+
+  .hero-stats {
+    grid-column: 1 / -1;
+  }
 }
 
 .eyebrow {
@@ -504,11 +589,21 @@ h1 {
   background-color: var(--bg-subtle);
 }
 
+.btn-coffee {
+  border-color: var(--coffee-border);
+  background-color: var(--coffee-bg);
+  color: var(--coffee-text);
+}
+
+.btn-coffee:hover {
+  background-color: var(--coffee-bg-hover);
+}
+
 .hero-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 0.9rem;
-  margin: 0.75rem 0 0;
+  margin: 0.5rem 0 0;
 }
 
 .stat-card {
@@ -1095,7 +1190,9 @@ h1 {
   .filter-btn,
   .repo-link,
   .theme-toggle,
-  .snippet-box {
+  .snippet-box,
+  .hero-emblem,
+  .btn-coffee {
     border: 1px solid CanvasText;
   }
 
