@@ -490,17 +490,14 @@ body {
 }
 
 .eyebrow {
-  justify-self: start;
+  display: inline-block;
+  width: fit-content;
   margin: 0;
-  padding-block: 0.3rem;
-  padding-inline: 0.85rem;
-  border: 1px solid color-mix(in oklab, var(--brand) 38%, var(--border));
-  border-radius: 999px;
-  background-color: color-mix(in oklab, var(--brand) 10%, var(--bg-elevated));
   color: var(--brand);
   font-size: 0.8125rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 h1,
@@ -597,6 +594,13 @@ h1 {
 
 .btn-coffee:hover {
   background-color: var(--coffee-bg-hover);
+}
+
+.btn-header-coffee {
+  min-block-size: 38px;
+  padding-block: 0.35rem;
+  padding-inline: 0.8rem;
+  font-size: 0.85rem;
 }
 
 .hero-stats {
@@ -1140,7 +1144,8 @@ h1 {
   .filter-btn,
   .repo-link,
   .theme-toggle,
-  .copy-btn {
+  .copy-btn,
+  .btn-header-coffee {
     min-block-size: 44px;
   }
 }
